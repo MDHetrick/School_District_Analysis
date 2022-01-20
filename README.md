@@ -58,7 +58,7 @@ student_data_df.loc[(student_data_df['grade'] == '9th') &
                     (student_data_df['school_name'] == 'Thomas High School'),
                    'math_score'] = np.nan
 ```
-Once the scores were replaced, I performed a count on the datafram to count the nulls.
+Once the scores were replaced, I performed a count on the dataframe to count the nulls.
 
 ```
 print(student_data_df.isnull().sum())
@@ -90,19 +90,17 @@ average_math_score = school_data_complete_df["math_score"].mean()
 Then, I performed a count on the number of 9th grade students at Thomas High School. To do this, I summed the number of null values in the student data dataframe. I was able to do this because I replaced all the reading and math scores for Thomas High School 9th graders above. To get an updated total student count, I subtracted the Thomas High School 9th grader count from the original total student count.
 ```
 # Step 1. Get the number of students that are in ninth grade at Thomas High School.
-# These students have no grades. 
-THS_count = student_data_df.isnull().sum()
+ 
+THS_count = student_data_df['reading_score'].isnull().sum()
 
-print(THS_count["reading_score"])
+print(THS_count)
 
 # Get the total student count 
 student_count = school_data_complete_df["Student ID"].count()
 
-print(student_count)
-
 # Step 2. Subtract the number of students that are in ninth grade at 
 # Thomas High School from the total student count to get the new total student count.
-new_total_student_count = student_count - THS_count['reading_score']
+new_total_student_count = student_count - THS_count
 
 new_total_student_count
 ```
