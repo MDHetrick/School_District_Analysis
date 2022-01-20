@@ -42,7 +42,7 @@ The final piece of analysis was to look at school type as it relates to the rele
 
 
 
-### Deliverable 1:  Replace Ninth-Grade Reading and Math Scores 
+### Part 1:  Replace Ninth-Grade Reading and Math Scores 
 Per school district instructions, the reading and math scores for 9th graders at Thomas High School are suspect, and should be excluded from analysis. To do this, I used the `loc` method to filter the `student_data_df` for 9th graders (from the grade column) and Thomas High School(from the school_name column). Within the `loc` command, I also pulled up the rows with reading_score, and replaced the scores with `NaN`. I did the same for math_scores, replacing the socres with `NaN`
 
 ```
@@ -59,7 +59,8 @@ student_data_df.loc[(student_data_df['grade'] == '9th') &
                    'math_score'] = np.nan
 ```
 Once the scores were replaced, I performed a count on the dataframe to count the nulls.
-!9gDF.png
+
+![9gDF.png]
 
 ```
 print(student_data_df.isnull().sum())
@@ -67,7 +68,7 @@ print(student_data_df.isnull().sum())
 This gave me reading_score and math_score counts of 461 each, indicating that I successfully replaced 461 reading and math scores with "NaN".
 
 
-### Deliverable 2: Repeat the School District Analysis
+### Part 2: Repeat the School District Analysis
 First, I combined the `student_data_df` and the `school_data_df`dataframes to create a comprehensive dataframe.
 
 ```
@@ -160,10 +161,13 @@ district_summary_df = pd.DataFrame(
           "% Passing Math": passing_math_percentage,
          "% Passing Reading": passing_reading_percentage,
         "% Overall Passing": overall_passing_percentage}])
+
 # Format the "Total Students" to have the comma for a thousands separator.
 district_summary_df["Total Students"] = district_summary_df["Total Students"].map("{:,}".format)
+
 # Format the "Total Budget" to have the comma for a thousands separator, a decimal separator and a "$".
 district_summary_df["Total Budget"] = district_summary_df["Total Budget"].map("${:,.2f}".format)
+
 # Format the columns.
 district_summary_df["Average Math Score"] = district_summary_df["Average Math Score"].map("{:.1f}".format)
 district_summary_df["Average Reading Score"] = district_summary_df["Average Reading Score"].map("{:.1f}".format)
