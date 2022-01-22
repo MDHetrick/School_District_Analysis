@@ -1,10 +1,11 @@
 # School District Analysis
 
 ## Project Overview
+The purpose of this analysis is to evaluate the math and reading scores for a school district as they relate to several metrics. There is some question about the validity of the data for the 9th graders at Thomas High School (THS). This analysis is performed on the complete data, and with suspect data excluded.
 
 ## Resources
-- Data Source: 
-- Software: Python xxxxxx, Jupyter Notebook
+- Data Source: schools_complete.csv, students_complete.csv
+- Software: Python 3.9.7, Jupyter Notebook 6.4.6
 
 ## Performing the Analysis
 In performing the analysis, first, the data was loaded and cleaned.
@@ -40,12 +41,6 @@ Next, I created spending bins for the "Per Student Budget", and assigned each sc
 I then performed similar steps to put the schools in bins based on school size. `size_summary_df_original`
 The final piece of analysis was to look at school type as it relates to the relevant scores.  `type_summary_df_original`
 
-#### Original Data Frame By School 
-#### District DataFrame
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/per_school_summary_df_original.png)
-
-
-
 ### Part 1:  Replace Ninth-Grade Reading and Math Scores 
 Per school district instructions, the reading and math scores for 9th graders at Thomas High School are suspect, and should be excluded from analysis. To do this, I used the `loc` method to filter the `student_data_df` for 9th graders (from the grade column) and Thomas High School(from the school_name column). Within the `loc` command, I also pulled up the rows with reading_score, and replaced the scores with `NaN`. I did the same for math_scores, replacing the socres with `NaN`
 
@@ -62,7 +57,7 @@ student_data_df.loc[(student_data_df['grade'] == '9th') &
                     (student_data_df['school_name'] == 'Thomas High School'),
                    'math_score'] = np.nan
 ```
-Once the scores were replaced, I pulled up the dataframe and performed a count on the dataframe to count the nulls.
+Once the scores were replaced, I pulled up the dataframe to ensure only the scores were replaced, and performed a count on the dataframe to count the nulls.
 
 ![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/THS9gdf.png)
 
@@ -269,24 +264,6 @@ bottom_schools = per_school_summary_df.sort_values(["% Overall Passing"], ascend
 
 bottom_schools.head()
 ```
-
-The new, updated top 5 was compared to the original top 5
-
-#### Updated Top 5
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_top5.png)
-
-#### Original Top 5
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/originaltop5.png)
-
-The updated bottom 5 was compared to the original top 5
-
-
-#### Updated Bottom 5
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_bottom5.png)
-
-#### Original Bottom 5
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_bottom5.png)
-
 Next, scores were grouped by grade level and combined into dataframes. 
 
 ```
@@ -333,25 +310,6 @@ reading_scores_by_grade = pd.DataFrame({
 
 
 ```
-
-After formatting, the updated school reading scores and math scores by grade were displayed and compared to the original.
-
-#### Updated Reading Scores by Grade
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/reading_scores_by_grade_updated.png)
-
-
-#### Original Reading Scores by Grade
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/reading_scores_by_grade_original.png)
-
-#### Updated Math Scores by Grade
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/math_scores_by_grade_updated.png)
-
-#### Original Math Scores by Grade
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/math_scores_by_grade_original.png)
 
 The next analysis piece was to look at the average scores by school spending per student. To do this, several spending bins were created, and a data frame was created.
 
@@ -412,16 +370,6 @@ spending_summary_df.index.name = None
 
 spending_summary_df
 ```
-
-#### Updated Spending Summary
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_spending_summary.png)
-
-#### Original Spending Summary
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_spending_summary.png)
-
-
 Next the schools were placed into bins based on their sizes, and a similar analysis was performed.
 
 ```
@@ -507,14 +455,6 @@ type_summary_df["% Overall Passing"] = type_summary_df["% Overall Passing"].map(
 
 type_summary_df.index.name=None
 ```
-
-#### Updated Type Summary
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/type_summary_df_updated.png)
-
-#### Original Type Summary
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/type_summary_df_original.png)
-
-
 ## Results
  - How is the district summary affected?
     - The average math score decreased from 79.0 to 78.9
@@ -522,20 +462,42 @@ type_summary_df.index.name=None
     - The % passing math decreased from 75.0% to 74.8%
     - The % passing reading decreased from 85.8% to 85.7%
     - The overall % passing decreased from 65.2% to 64.9% 
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/district_summary_comparison.png)
+
  - How is the school summary affected? For Thomas High School:  
     - There was no change in the average reading score
     - The average math score increased from 83.8 to 83.9
     - The % passing math decreased from 93.3% to 93.2%
     - The % passing reading decreased from 97.3% to 97.0%
     - The overall % passing decreased from 90.9% to 90.6%  
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/THS_comparison.png)
+
  - How does replacing the ninth graders’ math and reading scores affect Thomas High School’s performance relative to the other schools?
     - Initially, Thomas High School was 2nd of all schools when looking at % overall passing, with 90.9% overall passing. 
-    - After replacing the scores for the ninth graders, Thomas High School dropped to 3rd with 90.6% overall passing
+    - After replacing the scores for the ninth graders, Thomas High School dropped to 3rd with 90.6% overall passing.
+    - Bottom 5 schools were not impacted.
+
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/top5_comparison.png) ![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/bottom5_comparison.png)
+
+
+
  - How does replacing the ninth-grade scores affect the following:
    - Math and reading scores by grade, average 9th grade reading scores decreased from 82.5 to 82.4 after THS 9th graders were excluded. Average 9th grade math scores decreased from 80.4 to 80.1 after THS 9th graders were excluded.
    - Scores by school spending: THS falls within the $630-644 per capita spending bin. Within this bin, the % passing reading decreased from 84.4% to 84.3%, and % overall passing decreased from 62.9% to 62.8%
+   
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/spending_summary_comparison.png)
+
+
    - Scores by school size: THS is a medium sized school. Within this bin, the % passing decreased from 96.8% to 96.7%, and the % overall passing decreased from 90.6% to 90.5%
+
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/size_summary_comparison.png)
+
+
    - Scores by school type: THS is a charter school. Within this bin, the % passing reading decreased from 96.6% to 96.5%.
+
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/type_summary_comparison.png)
+
+
 
 ## Summary
 After replacing the THS 9th grade reading and math scores with NaN, the overall % passing for THS decreased, as did the overall % passing for the per capita bin and the school size bin that THS is in. This change also bumped THS from 2nd to 3rd in the list of top 5 schools, with Griffin High school moving from 3rd to 2nd. 
