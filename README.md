@@ -177,14 +177,6 @@ district_summary_df["% Overall Passing"] = district_summary_df["% Overall Passin
 # Display the data frame
 district_summary_df
 ```
-#### District DataFrame
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/DF_by_school01.png)
-
-I then ran code to create and format a school summary dataframe.
-#### Updated District Summary DataFrame
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/District_summary_DF01.png)
-
-
 Next, I retrieved the number of 10th-12th grade students from THS.
 
 ```
@@ -419,13 +411,6 @@ size_summary_df["% Overall Passing"] = size_summary_df["% Overall Passing"].map(
 size_summary_df
 
 ```
-#### Updated Size Summary
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_size_summary.png)
-
-#### Original Size Summary
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_size_summary.png)
 
 The final step was to perform an analysis based on the type of school.
 
