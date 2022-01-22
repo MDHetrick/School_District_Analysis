@@ -5,6 +5,7 @@ The purpose of this analysis is to evaluate the math and reading scores for a sc
 
 ## Resources
 - Data Source: schools_complete.csv, students_complete.csv
+- Code File: PyCitySchools_Challenge_Final.ipynb
 - Software: Python 3.9.7, Jupyter Notebook 6.4.6
 
 ## Performing the Analysis
@@ -57,9 +58,7 @@ student_data_df.loc[(student_data_df['grade'] == '9th') &
                     (student_data_df['school_name'] == 'Thomas High School'),
                    'math_score'] = np.nan
 ```
-Once the scores were replaced, I pulled up the dataframe to ensure only the scores were replaced, and performed a count on the dataframe to count the nulls.
-
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/THS9gdf.png)
+Once the scores were replaced, I performed a count on the dataframe to count the nulls.
 
 ```
 print(student_data_df.isnull().sum())
