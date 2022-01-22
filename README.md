@@ -298,8 +298,46 @@ reading_scores_by_grade = pd.DataFrame({
     "12th": twelfth_grade_reading_scores
 })
 
+```
+Once I had complete dataframes, I formatted them and averaged the scores for each grade.
 
+```
+# Format each grade column.
+math_scores_by_grade["9th"] = math_scores_by_grade["9th"].map("{:.1f}".format)
 
+math_scores_by_grade["10th"] = math_scores_by_grade["10th"].map("{:.1f}".format)
+
+math_scores_by_grade["11th"] = math_scores_by_grade["11th"].map("{:.1f}".format)
+
+math_scores_by_grade["12th"] = math_scores_by_grade["12th"].map("{:.1f}".format)
+
+math_scores_by_grade
+
+reading_scores_by_grade["9th"] = reading_scores_by_grade["9th"].map("{:,.1f}".format)
+
+reading_scores_by_grade["10th"] = reading_scores_by_grade["10th"].map("{:,.1f}".format)
+
+reading_scores_by_grade["11th"] = reading_scores_by_grade["11th"].map("{:,.1f}".format)
+
+reading_scores_by_grade["12th"] = reading_scores_by_grade["12th"].map("{:,.1f}".format)
+
+reading_scores_by_grade
+
+# Remove the index.
+reading_scores_by_grade.index.name = None
+
+# Display the data frame.
+reading_scores_by_grade
+
+reading_scores_by_grade.astype(float).mean()
+
+## Remove the index.
+math_scores_by_grade.index.name = None
+
+# Display the data frame
+math_scores_by_grade
+
+math_scores_by_grade.astype(float).mean()
 ```
 
 The next analysis piece was to look at the average scores by school spending per student. To do this, several spending bins were created, and a data frame was created.
