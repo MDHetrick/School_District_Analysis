@@ -510,7 +510,7 @@ type_summary_df.index.name=None
 ![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/spending_summary_comparison.png)
 
 
-   - Scores by school size: THS is a medium sized school. Within this bin, the % passing decreased from 96.8% to 96.7%, and the % overall passing decreased from 90.6% to 90.5%
+   - Scores by school size: THS is a medium sized school. Within this bin, the % passing reading decreased from 96.8% to 96.7%, and the % overall passing decreased from 90.6% to 90.5%
 
 ![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/size_summary_comparison.png)
 
