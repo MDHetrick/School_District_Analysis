@@ -58,9 +58,9 @@ student_data_df.loc[(student_data_df['grade'] == '9th') &
                     (student_data_df['school_name'] == 'Thomas High School'),
                    'math_score'] = np.nan
 ```
-Once the scores were replaced, I performed a count on the dataframe to count the nulls.
+Once the scores were replaced, I pulled up the dataframe and performed a count on the dataframe to count the nulls.
 
-![9gDF.png]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/THS9gdf.png)
 
 ```
 print(student_data_df.isnull().sum())
@@ -178,12 +178,13 @@ district_summary_df["% Overall Passing"] = district_summary_df["% Overall Passin
 # Display the data frame
 district_summary_df
 ```
-#### District Summary DataFrame
-![District Summary DF01]
+#### District DataFrame
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/DF_by_school01.png)
 
 I then ran code to create and format a school summary dataframe.
-#### School Summary DataFrame
-![DF_by_school01]
+#### Updated District Summary DataFrame
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/District_summary_DF01.png)
+
 
 Next, I retrieved the number of 10th-12th grade students from THS.
 
@@ -251,8 +252,15 @@ per_school_summary_df.loc["Thomas High School", "% Passing Reading"] = THS_perce
 per_school_summary_df.loc["Thomas High School", "% Overall Passing"] = THS_percent_passing_math_reading
 
 ```
+
+I compared this updated dataframe with the original dataframe, and the dataframe with the initial adjustment.
+
 #### Updated DataFrame by School
-![DF_by_school02]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_df_by_school.png)
+
+
+#### Original DataFrame by School
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_df_by_school.png)
 
 Then, the schools were again sorted by overall passing rate to see the top 5 and bottom 5
 
@@ -271,19 +279,19 @@ bottom_schools.head()
 The new, updated top 5 was compared to the original top 5
 
 #### Updated Top 5
-![updated_top5]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_top5.png)
 
 #### Original Top 5
-![original_top_5]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_top5.png)
 
 The updated bottom 5 was compared to the original top 5
 
 
 #### Updated Bottom 5
-![updated_bottom5]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_bottom5.png)
 
 #### Original Bottom 5
-![original_bottom5]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_bottom5.png)
 
 Next, scores were grouped by grade level and combined into dataframes. 
 
@@ -336,20 +344,20 @@ After formatting, the updated school reading scores and math scores by grade wer
 
 #### Updated Reading Scores by Grade
 
-![reading_scores_by_grade_updated]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/reading_scores_by_grade_updated.png)
 
 
 #### Original Reading Scores by Grade
 
-![original_reading_scores_by_grade]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/reading_scores_by_grade_original.png)
 
 #### Updated Math Scores by Grade
 
-![math_scores_by_grade_updated]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/math_scores_by_grade_updated.png)
 
 #### Original Math Scores by Grade
 
-![original_math_scores_by_grade]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/math_scores_by_grade_original.png)
 
 The next analysis piece was to look at the average scores by school spending per student. To do this, several spending bins were created, and a data frame was created.
 
@@ -413,11 +421,11 @@ spending_summary_df
 
 #### Updated Spending Summary
 
-![updated_spending_summary]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_spending_summary.png)
 
 #### Original Spending Summary
 
-![original_spending_summary
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_spending_summary.png)
 
 
 Next the schools were placed into bins based on their sizes, and a similar analysis was performed.
@@ -471,11 +479,11 @@ size_summary_df
 ```
 #### Updated Size Summary
 
-![updated_size_summary]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_size_summary.png)
 
-#### Original Spending Summary
+#### Original Size Summary
 
-![original_spending_summary
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_size_summary.png)
 
 The final step was to perform an analysis based on the type of school.
 
@@ -507,10 +515,10 @@ type_summary_df.index.name=None
 ```
 
 #### Updated Type Summary
-![type_summary_df_updated]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/type_summary_df_updated.png)
 
 #### Original Type Summary
-![type_summary_df_original]
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_type_summary.png)
 
 
 ## Results
