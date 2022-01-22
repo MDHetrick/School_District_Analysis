@@ -40,6 +40,10 @@ Next, I created spending bins for the "Per Student Budget", and assigned each sc
 I then performed similar steps to put the schools in bins based on school size. `size_summary_df_original`
 The final piece of analysis was to look at school type as it relates to the relevant scores.  `type_summary_df_original`
 
+#### Original Data Frame By School 
+#### District DataFrame
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/per_school_summary_df_original.png)
+
 
 
 ### Part 1:  Replace Ninth-Grade Reading and Math Scores 
@@ -272,7 +276,7 @@ The new, updated top 5 was compared to the original top 5
 ![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_top5.png)
 
 #### Original Top 5
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_top5.png)
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/originaltop5.png)
 
 The updated bottom 5 was compared to the original top 5
 
@@ -508,22 +512,31 @@ type_summary_df.index.name=None
 ![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/type_summary_df_updated.png)
 
 #### Original Type Summary
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_type_summary.png)
+![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/type_summary_df_original.png)
 
 
 ## Results
-
-There is a bulleted list that addresses how each of the seven school district metrics was affected by the changes in the data
-
  - How is the district summary affected?
- - How is the school summary affected?
+    - The average math score decreased from 79.0 to 78.9
+    - There was no change in the average reading score
+    - The % passing math decreased from 75.0% to 74.8%
+    - The % passing reading decreased from 85.8% to 85.7%
+    - The overall % passing decreased from 65.2% to 64.9% 
+ - How is the school summary affected? For Thomas High School:  
+    - There was no change in the average reading score
+    - The average math score increased from 83.8 to 83.9
+    - The % passing math decreased from 93.3% to 93.2%
+    - The % passing reading decreased from 97.3% to 97.0%
+    - The overall % passing decreased from 90.9% to 90.6%  
  - How does replacing the ninth graders’ math and reading scores affect Thomas High School’s performance relative to the other schools?
+    - Initially, Thomas High School was 2nd of all schools when looking at % overall passing, with 90.9% overall passing. 
+    - After replacing the scores for the ninth graders, Thomas High School dropped to 3rd with 90.6% overall passing
  - How does replacing the ninth-grade scores affect the following:
-   - Math and reading scores by grade
-   - Scores by school spending
-   - Scores by school size
-   - Scores by school type
+   - Math and reading scores by grade, average 9th grade reading scores decreased from 82.5 to 82.4 after THS 9th graders were excluded. Average 9th grade math scores decreased from 80.4 to 80.1 after THS 9th graders were excluded.
+   - Scores by school spending: THS falls within the $630-644 per capita spending bin. Within this bin, the % passing reading decreased from 84.4% to 84.3%, and % overall passing decreased from 62.9% to 62.8%
+   - Scores by school size: THS is a medium sized school. Within this bin, the % passing decreased from 96.8% to 96.7%, and the % overall passing decreased from 90.6% to 90.5%
+   - Scores by school type: THS is a charter school. Within this bin, the % passing reading decreased from 96.6% to 96.5%.
 
 ## Summary
-Summarize four changes in the updated school district analysis after reading and math scores for the ninth grade at Thomas High School have been replaced with NaNs.
+After replacing the THS 9th grade reading and math scores with NaN, the overall % passing for THS decreased, as did the overall % passing for the per capita bin and the school size bin that THS is in. This change also bumped THS from 2nd to 3rd in the list of top 5 schools, with Griffin High school moving from 3rd to 2nd. 
 
