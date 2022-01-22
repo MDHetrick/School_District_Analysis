@@ -252,16 +252,6 @@ per_school_summary_df.loc["Thomas High School", "% Passing Reading"] = THS_perce
 per_school_summary_df.loc["Thomas High School", "% Overall Passing"] = THS_percent_passing_math_reading
 
 ```
-
-I compared this updated dataframe with the original dataframe, and the dataframe with the initial adjustment.
-
-#### Updated DataFrame by School
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/updated_df_by_school.png)
-
-
-#### Original DataFrame by School
-![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/original_df_by_school.png)
-
 Then, the schools were again sorted by overall passing rate to see the top 5 and bottom 5
 
 ```
