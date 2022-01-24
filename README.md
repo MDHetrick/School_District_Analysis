@@ -189,16 +189,18 @@ THS_student_count
 Once I had the student count, I created dataframes that contained students passing math, reading, and math and reading. With these dataframes, I also counted the number of students falling into each category, and I calculated the percentage of students falling in these categories as well.
 ```
 # Step 6. Get all the students passing math from THS
-THS_passing_math_count_df = school_data_complete_df.loc[(student_data_df["school_name"] == "Thomas High School") &
-                                             (school_data_complete_df["math_score"] >= 70), :]["student_name"]
+THS_passing_math_count_df = school_data_complete_df.loc[(student_data_df["school_name"] == "Thomas High School") & 
+                                                        (school_data_complete_df["math_score"] >= 70) & 
+                                                        (school_data_complete_df["grade"] != "9th"), :]["student_name"]
 
 THS_passing_math_count = THS_passing_math_count_df.count()
 
 THS_passing_math_count
 
 # Step 7. Get all the students passing reading from THS
-THS_passing_reading_count_df = school_data_complete_df.loc[(student_data_df["school_name"] == "Thomas High School") &
-                                             (school_data_complete_df["reading_score"] >= 70), :]["student_name"]
+THS_passing_reading_count_df = school_data_complete_df.loc[(student_data_df["school_name"] == "Thomas High School") & 
+                                                              (school_data_complete_df["grade"] != "9th") & 
+                                                               (school_data_complete_df["reading_score"] >= 70), :]["student_name"]
 
 THS_passing_reading_count = THS_passing_reading_count_df.count()
 
@@ -207,7 +209,8 @@ THS_passing_reading_count
 # Step 8. Get all the students passing math and reading from THS
 THS_passing_math_reading_count_df = school_data_complete_df.loc[(student_data_df["school_name"] == "Thomas High School") & 
                                                              (school_data_complete_df["reading_score"] >= 70) & 
-                                                             (school_data_complete_df["math_score"] >= 70), :]["student_name"]
+                                                             (school_data_complete_df["math_score"] >= 70) &
+                                                             (school_data_complete_df["grade"] != "9th"), :]["student_name"]
 
 THS_passing_math_reading_count = THS_passing_math_reading_count_df.count()
 
