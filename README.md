@@ -480,7 +480,7 @@ type_summary_df["% Overall Passing"] = type_summary_df["% Overall Passing"].map(
 
 type_summary_df.index.name=None
 ```
-## Results and Summary
+## Results 
  - How is the district summary affected?
     - The average math score decreased from 79.0 to 78.9
     - There was no change in the average reading score
@@ -522,5 +522,6 @@ type_summary_df.index.name=None
 
 ![Image](https://github.com/MDHetrick/School_District_Analysis/blob/main/resources/type_summary_comparison.png)
 
-After replacing the THS 9th grade reading and math scores with NaN, the overall % passing for THS decreased, as did the overall % passing for the per capita bin and the school size bin that THS is in. This change also bumped THS from 2nd to 3rd in the list of top 5 schools, with Griffin High school moving from 3rd to 2nd. 
+## Summary
+After replacing the THS 9th grade reading and math scores with NaN, the overall % passing for THS decreased, as did the overall % passing for the per capita bin ($630-644) and the school size bin (Medium) that THS is in. This change also bumped THS from 2nd to 3rd in the list of top 5 schools, with Griffin High school moving from 3rd to 2nd. 
 
